@@ -90,11 +90,11 @@ KVM acceleration can be used
 ```
 #### 2.2 Install the kvm packages
 ```bash
-sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients ubuntu-vm-builder bridge-utils
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients ubuntu-vm-builder bridge-utils
 ```
 #### 2.3 Optionally install the virtmanager and stuff
 ```bash
-sudo libvirt-clients libvirt-daemon-system virt-manager
+sudo apt install virt-manager
 ```
 
 Probably wise to reboot at this stage.
