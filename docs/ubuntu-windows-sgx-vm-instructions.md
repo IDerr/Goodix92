@@ -50,7 +50,7 @@ read -n1 -r -p "Press any key to launch make menuconfig" key
 make menuconfig
 
 echo "Building Kernel"
-time make -j deb-pkg LOCALVERSION=$suffix >/dev/null 2> >(tee -a $build_dir/build-errors.log >&2)
+time make -j$build_threads deb-pkg LOCALVERSION=$suffix >/dev/null 2> >(tee -a $build_dir/build-errors.log >&2)
 ```
 During the kernel build you'll get the menuconfig screen appear, you will need to go and enable the SGX driver to be included in the build config. At the top menu, type `/` for search and enter `sgx`. It'll tell you the path in the `driver` menu to enable the `sgx` driver. Once you've located it, press `y` to select, save your config and exit to continue the build.
 
@@ -120,13 +120,14 @@ It's probably better practice to build the package in a non-root folder first an
 
 #### 3.3 Build qemu
 ```bash
+build_threads="12"
 cd /usr/src
 sudo git clone https://github.com/intel/qemu-sgx.git
 cd qemu-sgx/
 sudo mkdir build
 cd build
 sudo ../configure --target-list=x86_64-softmmu --prefix=/usr --enable-debug --enable-libusb --enable-kvm --enable-seccomp
-sudo make -j12
+sudo make -j$build_threads
 ```
 
 #### 3.4 Optional: Copy build folder to a different location
