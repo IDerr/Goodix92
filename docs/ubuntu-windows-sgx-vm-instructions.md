@@ -90,7 +90,7 @@ KVM acceleration can be used
 ```
 #### 2.2 Install the kvm packages
 ```bash
-sudo apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
+sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients ubuntu-vm-builder bridge-utils
 ```
 #### 2.3 Optionally install the virtmanager and stuff
 ```bash
