@@ -12,7 +12,7 @@ It's probably wise to start on a similar kernel version to that which you're bui
 These packages are needed to build the kernel, there may be others. 
 The libcurses package is needed for the graphical menuconfig.
 ```bash
-sudo apt-get install git build-essential kernel-package fakeroot libncurses5-dev libssl-dev ccache libncurses-dev
+sudo apt install git build-essential kernel-package fakeroot libncurses5-dev libssl-dev ccache libncurses-dev bison flex libelf-dev
 ```
 
 #### 1.2 Build the kvm-sgx kernel
