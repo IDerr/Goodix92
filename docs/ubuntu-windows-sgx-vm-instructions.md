@@ -144,7 +144,7 @@ Follow the instructions here to setup the Windows vm: [Windows 10 Virtualization
 
 #### 4.1 Modifications to `vm.sh`
 
-- Included the path to the built qmeu-sgx
+- Included the path to the built qemu-sgx
 - Added the `-machine epc=2g` for SGX memory storage
 - Pass through the fingerprint USB device
 
