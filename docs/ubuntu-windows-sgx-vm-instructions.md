@@ -173,7 +173,7 @@ QEMUSGX=/opt/qemu-sgx
 -net nic,model=virtio -net user -cdrom ${WINIMG} \
 -drive file=${VIRTIMG},index=3,media=cdrom \
 -usb -device usb-host,hostbus=1,hostaddr=5  \
--machine epc=2g \
+-machine epc=128m \
 -rtc base=localtime,clock=host -smp cores=4,threads=8 \
 -usb -device usb-tablet -cpu host
 ```
