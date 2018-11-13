@@ -163,7 +163,7 @@ WINIMG=$HOME/vm/Win10_1607_EnglishInternational_x64.iso
 VIRTIMG=$HOME/vm/virtio-win-0.1.160.iso
 # path to the build folder for qemu-sgx
 QEMUSGX=/opt/qemu-sgx
-/opt/qemu-sgx/x86_64-softmmu/qemu-system-x86_64 -L ${QEMUSGX} --enable-kvm -drive driver=raw,file=/home/berg/vm/win10.img,if=virtio -m 2048 \
+/opt/qemu-sgx/x86_64-softmmu/qemu-system-x86_64 -L ${QEMUSGX} --enable-kvm -drive driver=raw,file=$HOME/vm/win10.img,if=virtio -m 2048 \
 -net nic,model=virtio -net user -cdrom ${WINIMG} \
 -drive file=${VIRTIMG},index=3,media=cdrom \
 -usb -device usb-host,hostbus=1,hostaddr=5  \
