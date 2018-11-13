@@ -111,7 +111,7 @@ sudo modprobe kvm_intel sgx=0
 
 #### 3.2 Install build dependancies
 ```bash
-sudo apt-get install git git-email libaio-dev libbluetooth-dev libbrlapi-dev libbz2-dev libcap-dev libcap-ng-dev libcurl4-gnutls-dev libfdt-dev libglib2.0-dev libgtk-3-dev libibverbs-dev libjpeg8-dev liblzo2-dev libncurses5-dev libnuma-dev libpixman-1-dev librbd-dev librdmacm-dev libsasl2-dev libsdl1.2-dev libseccomp-dev libsnappy-dev libssh2-1-dev libusb-dev libvde-dev libvdeplug-dev libvte-dev libxen-dev valgrind xfslibs-dev zlib1g-dev libusb-1.0-0-dev
+sudo apt install git git-email libaio-dev libbluetooth-dev libbrlapi-dev libbz2-dev libcap-dev libcap-ng-dev libcurl4-gnutls-dev libfdt-dev libglib2.0-dev libgtk-3-dev libibverbs-dev libjpeg8-dev liblzo2-dev libncurses5-dev libnuma-dev libpixman-1-dev librbd-dev librdmacm-dev libsasl2-dev libsdl1.2-dev libseccomp-dev libsnappy-dev libssh2-1-dev libusb-dev libvde-dev libvdeplug-dev libvte-dev libxen-dev valgrind xfslibs-dev zlib1g-dev libusb-1.0-0-dev
 ```
 
 **Note:** After you build qemu, you will need to keep the checked out repo folder as the build folder will make symlinks to files in the repo root. I built mine in `/usr/src` and then copied the build folder to `/opt/qemu-sgx` because of linux conventions. 
