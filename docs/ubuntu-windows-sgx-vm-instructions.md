@@ -145,19 +145,13 @@ Follow the instructions here to setup the Windows vm: [Windows 10 Virtualization
 #### 4.1 Modifications to `vm.sh`
 
 - Included the path to the built qemu-sgx
-- Added the `-machine epc=2g` for SGX memory storage
+- Added the `-machine epc=128m` for SGX memory storage
 - Pass through the fingerprint USB device
 
 To get the device information run `lsusb` and note the bus and device number:
 ```bash
-lsusb
-Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+lsusb |grep '27c6:5395'
 Bus 001 Device 005: ID 27c6:5395  
-Bus 001 Device 003: ID 0cf3:e300 Atheros Communications, Inc. 
-Bus 001 Device 006: ID 046d:c539 Logitech, Inc. 
-Bus 001 Device 004: ID 05ac:0220 Apple, Inc. Aluminum Keyboard (ANSI)
-Bus 001 Device 002: ID 05ac:1006 Apple, Inc. Hub in Aluminum Keyboard
-Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
 ```
 
@@ -169,12 +163,12 @@ WINIMG=$HOME/vm/Win10_1607_EnglishInternational_x64.iso
 VIRTIMG=$HOME/vm/virtio-win-0.1.160.iso
 # path to the build folder for qemu-sgx
 QEMUSGX=/opt/qemu-sgx
-/opt/qemu-sgx/x86_64-softmmu/qemu-system-x86_64 -L ${QEMUSGX} --enable-kvm -drive driver=raw,file=/home/berg/vm/win10.img,if=virtio -m 6144 \
+/opt/qemu-sgx/x86_64-softmmu/qemu-system-x86_64 -L ${QEMUSGX} --enable-kvm -drive driver=raw,file=/home/berg/vm/win10.img,if=virtio -m 2048 \
 -net nic,model=virtio -net user -cdrom ${WINIMG} \
 -drive file=${VIRTIMG},index=3,media=cdrom \
 -usb -device usb-host,hostbus=1,hostaddr=5  \
 -machine epc=128m \
--rtc base=localtime,clock=host -smp cores=4,threads=8 \
+-rtc base=localtime,clock=host -smp cores=2,threads=4 \
 -usb -device usb-tablet -cpu host
 ```
 
