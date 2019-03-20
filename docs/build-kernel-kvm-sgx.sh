@@ -12,7 +12,7 @@ set -e
 #
 build_dir="$HOME/build-linux-sgx"
 
-version="sgx-v4.19.1-r1"
+version="sgx-v5.0.0-r1"
 suffix="-kvm-sgx"
 git_repo="https://github.com/intel/kvm-sgx.git"
 build_threads="12"

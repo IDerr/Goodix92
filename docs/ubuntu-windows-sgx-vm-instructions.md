@@ -101,10 +101,13 @@ You can use the same command used by virt-manager (look at the output of `ps aux
 
 - Use the path to the built qemu-sgx (e.g. `$HOME/build-linux-sgx/qemu-sgx/build/install/bin/qemu-system-x86_64`)
 - use `-cpu host`
-- Add `epc=128m` to the `-machine` option to enable the SGX memory storage
-- Pass through the fingerprint USB device
+- Configure the EPC memory storage by adding these command line options:
 
-**Note:** If virt-manager used a `pc-q35-3.1` machine, change that to `pc-q35-3.0` as qemu-sgx may not be up to date with upstream.
+  ```
+  -object memory-backend-epc,id=mem1,size=64M,prealloc -sgx-epc id=epc1,memdev=mem1
+  ```
+
+- Pass through the fingerprint USB device
 
 To get the device information run `lsusb` and note the bus and device number:
 ```bash
@@ -148,6 +151,12 @@ $QEMUSGX/bin/qemu-system-x86_64 \
 ```bash
 cd ~/vm
 sudo ./vm.sh
+```
+
+It is possible to connect to the VM display with `spicy`:
+
+```
+spicy --host 127.0.0.1 --port 5900
 ```
 
 #### 4.4 Install the drivers
