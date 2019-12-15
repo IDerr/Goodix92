@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/Goodix92/Lobby](https://badges.gitter.im/Goodix92/Lobby.svg)](https://gitter.im/Goodix92/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Project aiming to reverse engineer 2018 Dell XPS 9570/9370 fingerprint sensor (27c6:5395) and 2019 Dell XPS 9380 (27c6:5385).
+Project aiming to reverse engineer 2018 Dell XPS 9570/9370/9575 fingerprint sensor (27c6:5395) and 2019 Dell XPS 9380 (27c6:5385).
 
 Interesting links:
 
